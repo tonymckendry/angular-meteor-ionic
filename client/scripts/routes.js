@@ -9,8 +9,9 @@ export class RoutesConfig extends Config {
 
   configure() {
     this.$stateProvider
-      .state('tab', {
-        url: '/tab',
+      // .state('tab', {
+      .state('app', {
+        url: '/app',
         abstract: true,
         templateUrl: 'client/templates/menu.html',
       })
@@ -25,29 +26,29 @@ export class RoutesConfig extends Config {
       //     }
       //   }
       // })
-      .state('tab.chats', {
-        url: '/chats',
+      .state('app.login', {
+        url: '/login',
         views: {
-          'tab-chats': {
-            templateUrl: 'client/templates/chats.html',
+          'menuContent': {
+            templateUrl: 'client/templates/login.html',
             controller: 'ChatsCtrl as chats'
           }
         }
       })
-      .state('tab.chat', {
-        url: '/chats/:chatId',
+      .state('app.playlists', {
+        url: '/playlists',
         views: {
-          'tab-chats': {
-            templateUrl: 'client/templates/chat.html',
+          'menuContent': {
+            templateUrl: 'client/templates/playlists.html',
             controller: 'ChatCtrl as chat'
           }
         }
       })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'client/templates/login.html',
-        controller: 'LoginCtrl as logger'
-      })
+      // .state('login', {
+      //   url: '/login',
+      //   templateUrl: 'client/templates/login.html',
+      //   controller: 'LoginCtrl as logger'
+      // })
       .state('confirmation', {
         url: '/confirmation/:phone',
         templateUrl: 'client/templates/confirmation.html',
@@ -71,7 +72,8 @@ export class RoutesConfig extends Config {
         }
       });
 
-    this.$urlRouterProvider.otherwise('tab/chats');
+    // this.$urlRouterProvider.otherwise('tab/chats');
+    this.$urlRouterProvider.otherwise('app/login');
   }
 
   isAuthorized($auth) {
