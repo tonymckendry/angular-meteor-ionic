@@ -12,14 +12,19 @@ export class RoutesConfig extends Config {
       .state('tab', {
         url: '/tab',
         abstract: true,
-        templateUrl: 'client/templates/tabs.html',
-        resolve: {
-          user: this.isAuthorized,
-          chats() {
-            return Meteor.subscribe('chats');
-          }
-        }
+        templateUrl: 'client/templates/menu.html',
       })
+      // .state('tab', {
+      //   url: '/tab',
+      //   abstract: true,
+      //   templateUrl: 'client/templates/tabs.html',
+      //   resolve: {
+      //     user: this.isAuthorized,
+      //     chats() {
+      //       return Meteor.subscribe('chats');
+      //     }
+      //   }
+      // })
       .state('tab.chats', {
         url: '/chats',
         views: {
