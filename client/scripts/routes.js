@@ -31,16 +31,15 @@ export class RoutesConfig extends Config {
         views: {
           'menuContent': {
             templateUrl: 'client/templates/login.html',
-            controller: 'ChatsCtrl as chats'
+            controller: 'LoginCtrl as logger'
           }
         }
       })
-      .state('app.playlists', {
+      .state('app.success', {
         url: '/playlists',
         views: {
           'menuContent': {
             templateUrl: 'client/templates/playlists.html',
-            controller: 'ChatCtrl as chat'
           }
         }
       })
